@@ -10,6 +10,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--CSS Styles -->
+    <style>
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .parallax-image {
+            position: relative;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .parallax-image img {
+            position: absolute;
+            width: 100%;
+            height: 120%;
+            /* Extra buffer to scroll up/down */
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            will-change: transform;
+            pointer-events: none;
+            /* Prevent image overflow from affecting layout */
+        }
+
+        .text-box {
+            padding: 4rem;
+            text-align: center;
+            background: #fcfcfc;
+            font-size: 1.5rem;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css" />
 
     <!-- Favicons
@@ -25,11 +61,58 @@
 </head>
 
 <body>
-    <p>
-        Omar Grant delivers fierce, fashion-forward designs to enhance the aesthetics and possibilities of next
-        generation wearable micro, and nano, technologies! iPolish<sup>®</sup> adaptive fashion products are capable of
-        changing to hundreds of rich colors and unique tones – a nearly endless selection for you to enjoy… in style!
-    </p>
+    <nav>
+        <h1><a href="index.html">iPolish</a></h1>
+    </nav>
+
+    <div class="banner">
+        <div class="parallax-image" data-speed="1.25">
+            <img src="assets/images/model-pop.jpg" alt="Left Image" />
+        </div>
+        <div class="parallax-image" data-speed="1">
+            <img src="assets/images/model-glasses.jpg" alt="Center Image" />
+        </div>
+        <div class="parallax-image" data-speed="1.25">
+            <img src="assets/images/model-profile.jpg" alt="Right Image" />
+        </div>
+    </div>
+
+    <div class="text-box">
+        <p>
+            Omar Grant delivers fierce, fashion-forward designs to enhance the aesthetics and possibilities of next
+            generation wearable micro, and nano, technologies! iPolish<sup>®</sup> adaptive fashion products are capable
+            of
+            changing to hundreds of rich colors and unique tones – a nearly endless selection for you to enjoy… in
+            style!
+        </p>
+    </div>
+
+    <!-- Footer section -->
+    <footer class="homepage-footer">
+        <div class="footer-quicklinks">
+            <a class="footer-link">Our Story</a>
+            <a class="footer-link" href="story/purpose.html">Profits for Purpose</a>
+            <a class="footer-link" href="story/privacy.html">Privacy and
+                Security</a>
+            <a class="footer-link">Warranty
+                Information</a>
+            <a class="footer-link">Contact Us</a>
+        </div>
+        <br>
+        <p class="copy">iPolish, Inc.</p>
+        <p class="copy">&copy; 2025. All rights reserved.</p>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            document.querySelectorAll('.parallax-image img').forEach(img => {
+                const speed = parseFloat(img.parentElement.getAttribute('data-speed'));
+                const offset = scrollY * -speed * 0.2; // scaling down to reduce excessive movement
+                img.style.transform = `translateY(${offset}px)`;
+            });
+        });
+    </script>
 </body>
 
 </html>

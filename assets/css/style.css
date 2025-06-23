@@ -1,0 +1,128 @@
+/* Variables */
+:root {
+    --font-family: "Montserrat", sans-serif;
+    --normal-font: 400;
+    --bold-font: 700;
+    --bolder-font: 900;
+    --bg-color: #fcfcfc;
+    /* nav-bgs */
+    --primary-color: #000000;
+    /* text */
+    --secondary-color: #ff7235;
+    /* mouseover text */
+    --primary-shadow: #8b8eaf;
+    /* card shadow */
+    --secondary-shadow: #a17a69;
+    /* card shadow */
+    --bottom-margin: 0.5rem;
+    --bottom-margin-2: 1rem;
+    --line-height: 1.7rem;
+    --transition: 0.3s;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Burger menu */
+nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
+    background-color: var(--bg-color);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav h1 {
+    color: var(--primary-color);
+    font-size: 400%;
+}
+
+nav a {
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    font-weight: var(--bold-font);
+    padding: 0rem;
+}
+
+nav ul.show {
+    transform: translateX(0);
+    border-radius: 0% 0% 5% 5%;
+}
+
+footer {
+    background-color: var(--bg-color);
+    padding: 1.25rem;
+    text-align: center;
+    margin: 2rem 0 0;
+    font-size: 12px;
+}
+
+.homepage-footer {
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-quicklinks {
+    text-align: center;
+}
+
+.footer-link {
+    padding: 1rem;
+}
+
+img {
+    width: 50%;
+    height: auto;
+    align-items: center;
+    align-content: center;
+}
+
+@media screen and (max-width: 1200px) {
+    nav {
+        padding: 0rem 0rem;
+    }
+
+    nav ul {
+        position: fixed;
+        background-color: var(--bg-color);
+        flex-direction: column;
+        top: 86px;
+        left: 10%;
+        width: 80%;
+        text-align: center;
+        transform: translateX(120%);
+        transition: transform 0.5s ease-in;
+        border-radius: 0% 0% 5% 5%;
+    }
+
+    nav ul li {
+        margin: 8px;
+        padding: .9rem;
+    }
+}

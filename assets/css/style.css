@@ -25,24 +25,6 @@ body {
     overflow-x: hidden;
 }
 
-html,
-body {
-    width: 100%;
-    overflow-x: hidden;
-}
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
 a {
     text-decoration: none;
 }
@@ -143,13 +125,13 @@ sup {
 }
 
 .banner-desktop {
-    height: 100vh;
+    height: 100%;
 }
 
 .banner-mobile {
     display: none;
     flex-direction: column;
-    height: 40vh;
+    height: 40%;
     overflow: hidden;
 }
 

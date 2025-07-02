@@ -133,14 +133,16 @@ sup {
 }
 
 .parallax-image img {
-    position: absolute;
+    position: relative;
     width: 100%;
     height: 120%;
     /* Extra buffer to scroll up/down */
     top: 0;
     left: 0;
     object-fit: cover;
-    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    /* iOS rendering fix */
     pointer-events: none;
     /* Prevent image overflow from affecting layout */
 }

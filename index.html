@@ -9,42 +9,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--CSS Styles -->
-    <style>
-        .banner {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            display: flex;
-        }
-
-        .parallax-image {
-            position: relative;
-            flex: 1;
-            overflow: hidden;
-        }
-
-        .parallax-image img {
-            position: absolute;
-            width: 100%;
-            height: 120%;
-            /* Extra buffer to scroll up/down */
-            top: 0;
-            left: 0;
-            object-fit: cover;
-            will-change: transform;
-            pointer-events: none;
-            /* Prevent image overflow from affecting layout */
-        }
-
-        .text-box {
-            padding: 4rem;
-            text-align: center;
-            background: #fcfcfc;
-            font-size: 1.5rem;
-        }
-    </style>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css" />
 
@@ -62,29 +26,44 @@
 
 <body>
     <nav>
-        <h1><a href="index.html">iPolish</a></h1>
+        <h1><a href="index.html">Omar Grant</a></h1>
     </nav>
 
-    <div class="banner">
-        <div class="parallax-image" data-speed="1.25">
-            <img src="assets/images/model-pop.jpg" alt="Left Image" />
+    <div class="banner banner-desktop">
+        <div class="parallax-image" data-speed="1.4">
+            <img src="assets/images/model-pop.jpg" alt="A model with iPolish fingernails" />
         </div>
-        <div class="parallax-image" data-speed="1">
-            <img src="assets/images/model-glasses.jpg" alt="Center Image" />
+        <div class="parallax-image" data-speed="1.2">
+            <img src="assets/images/model-glasses.jpg" alt="A model with glasses and iPolish fingernails" />
         </div>
-        <div class="parallax-image" data-speed="1.25">
-            <img src="assets/images/model-profile.jpg" alt="Right Image" />
+        <div class="parallax-image" data-speed="1.4">
+            <img src="assets/images/model-profile.jpg" alt="A model with iPolish fingernails" />
+        </div>
+    </div>
+
+    <!-- Mobile version (1 image) -->
+    <div class="banner banner-mobile">
+        <div class="parallax-image" data-speed="1.2">
+            <img src="assets/images/model-glasses.jpg" alt="A model with glasses and iPolish fingernails" />
         </div>
     </div>
 
     <div class="text-box">
         <p>
             Omar Grant delivers fierce, fashion-forward designs to enhance the aesthetics and possibilities of next
-            generation wearable micro, and nano, technologies! iPolish<sup>®</sup> adaptive fashion products are capable
-            of
+            generation wearable micro, and nano, technologies!</p>
+        <a href="https://www.ipolish.fashion" class="site-link">Our Story</a>
+    </div>
+
+    <div class="supplementary">
+        <img src="assets/images/models-group.jpg" alt="A group of models with iPolish products" />
+    </div>
+    <div class="text-box">
+        <p>
+            iPolish<sup>®</sup> adaptive fashion products are capable of
             changing to hundreds of rich colors and unique tones – a nearly endless selection for you to enjoy… in
-            style!
-        </p>
+            style!</p>
+        <a href="https://www.ipolish.fashion" class="site-link">See iPolish<sup>®</sup> in action</a>
     </div>
 
     <!-- Footer section -->
@@ -104,13 +83,28 @@
     </footer>
 
     <script>
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            document.querySelectorAll('.parallax-image img').forEach(img => {
-                const speed = parseFloat(img.parentElement.getAttribute('data-speed'));
-                const offset = scrollY * -speed * 0.2; // scaling down to reduce excessive movement
-                img.style.transform = `translateY(${offset}px)`;
+        if (window.innerWidth > 1200) {
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                document.querySelectorAll('.parallax-image img').forEach(img => {
+                    const container = img.parentElement;
+                    if (getComputedStyle(container).display !== 'none') {
+                        const speed = parseFloat(container.getAttribute('data-speed'));
+                        const offset = scrollY * -speed * 0.5; // scaling down to reduce excessive movement
+                        img.style.transform = `translateY(${offset}px)`;
+                    }
+                });
             });
+        }
+
+        const nav = document.querySelector("nav");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+                nav.classList.add("shrink");
+            } else {
+                nav.classList.remove("shrink");
+            }
         });
     </script>
 </body>

@@ -38,17 +38,29 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 0rem;
-    padding-bottom: 0rem;
-    padding-left: 0rem;
-    padding-right: 0rem;
+    height: 120px;
+    /* Add this */
     background-color: var(--bg-color);
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    transition: height 0.3s ease;
+    /* Add this */
 }
 
 nav h1 {
     color: var(--primary-color);
-    font-size: 400%;
+    font-size: 5rem;
+    /* Instead of 400% — it's clearer and more scalable */
+    transition: font-size 0.3s ease;
+    /* Add this */
+}
+
+nav.shrink {
+    height: 80px;
+    /* 40% smaller */
+}
+
+nav.shrink h1 {
+    font-size: 3rem;
 }
 
 nav a {
@@ -103,9 +115,62 @@ img {
     align-content: center;
 }
 
+sup {
+    font-size: 50%;
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+}
+
+.parallax-image {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+}
+
+.parallax-image img {
+    position: absolute;
+    width: 100%;
+    height: 120%;
+    /* Extra buffer to scroll up/down */
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    will-change: transform;
+    pointer-events: none;
+    /* Prevent image overflow from affecting layout */
+}
+
+.text-box {
+    padding: 4rem;
+    background: #fcfcfc;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+/* By default: show desktop, hide mobile */
+.banner-mobile {
+    display: none;
+}
+
+.supplementary {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+
 @media screen and (max-width: 1200px) {
     nav {
         padding: 0rem 0rem;
+    }
+
+    nav h1 {
+        font-size: 250%;
     }
 
     nav ul {
@@ -124,5 +189,36 @@ img {
     nav ul li {
         margin: 8px;
         padding: .9rem;
+    }
+
+    .text-box {
+        padding: 2rem;
+        text-align: left;
+        background: #fcfcfc;
+        font-size: 1.5rem;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .banner-desktop {
+        display: none;
+    }
+
+    .banner-mobile {
+        display: flex;
+        flex-direction: column;
+        height: 40vh;
+    }
+
+    .banner-mobile .parallax-image {
+        height: 100%;
+    }
+
+    .banner-mobile img {
+        width: 100%;
+        height: 120%;
+        object-fit: cover;
     }
 }

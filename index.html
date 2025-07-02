@@ -43,7 +43,7 @@
 
     <!-- Mobile version (1 image) -->
     <div class="banner banner-mobile">
-        <div class="parallax-image" data-speed="1.2">
+        <div class="static-image" data-speed="1.2">
             <img src="assets/images/model-glasses-small.jpg" alt="A model with glasses and iPolish fingernails" />
         </div>
     </div>
@@ -83,19 +83,19 @@
     </footer>
 
     <script>
-        if (window.innerWidth > 1200) {
-            window.addEventListener('scroll', () => {
-                const scrollY = window.scrollY;
-                document.querySelectorAll('.parallax-image img').forEach(img => {
-                    const container = img.parentElement;
-                    if (getComputedStyle(container).display !== 'none') {
-                        const speed = parseFloat(container.getAttribute('data-speed'));
-                        const offset = scrollY * -speed * 0.5; // scaling down to reduce excessive movement
+        document.addEventListener("DOMContentLoaded", () => {
+            // Only apply parallax on screens wider than 1200px
+            if (window.innerWidth > 1200) {
+                window.addEventListener('scroll', () => {
+                    const scrollY = window.scrollY;
+                    document.querySelectorAll('.banner-desktop .parallax-image img').forEach(img => {
+                        const speed = parseFloat(img.parentElement.getAttribute('data-speed'));
+                        const offset = scrollY * -speed * 0.5;
                         img.style.transform = `translateY(${offset}px)`;
-                    }
+                    });
                 });
-            });
-        }
+            }
+        });
 
         const nav = document.querySelector("nav");
 

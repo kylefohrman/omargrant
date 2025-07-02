@@ -119,17 +119,25 @@ sup {
 }
 
 .banner {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
     display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner-desktop {
+    height: 100vh;
+}
+
+.banner-mobile {
+    display: none;
+    flex-direction: column;
+    height: 40vh;
 }
 
 .parallax-image {
-    position: relative;
     flex: 1;
     overflow: hidden;
+    position: relative;
 }
 
 .parallax-image img {
@@ -137,14 +145,17 @@ sup {
     width: 100%;
     height: 120%;
     /* Extra buffer to scroll up/down */
-    top: 0;
-    left: 0;
     object-fit: cover;
+    transform: translateY(0);
+    transition: transform 0.2s ease-out;
     backface-visibility: hidden;
     -webkit-transform: translateZ(0);
-    /* iOS rendering fix */
-    pointer-events: none;
-    /* Prevent image overflow from affecting layout */
+}
+
+.static-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .text-box {
@@ -152,11 +163,6 @@ sup {
     background: #fcfcfc;
     text-align: center;
     font-size: 1.5rem;
-}
-
-/* By default: show desktop, hide mobile */
-.banner-mobile {
-    display: none;
 }
 
 .supplementary {
@@ -218,17 +224,5 @@ sup {
 
     .banner-mobile {
         display: flex;
-        flex-direction: column;
-        height: 40vh;
-    }
-
-    .banner-mobile .parallax-image {
-        height: 100%;
-    }
-
-    .banner-mobile img {
-        width: 100%;
-        height: 120%;
-        object-fit: cover;
     }
 }

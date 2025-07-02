@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--TODO: Add Google tag-->
+    <!-- Google tag (gtag.js) -->
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- Favicons
+    <link rel="apple-touch-icon" href="assets/icons/ip-apple-touch-icon.png" />
+    <link rel="icon" type="image/ico" sizes="32x32" href="assets/icons/ip-favicon.ico" />
+    <link rel="icon" type="image/ico" sizes="16x16" href="assets/icons/ip-favicon.ico" />
+    <link rel="mask-icon" href="assets/icons/safari-pinned-tab.svg" color="white" />
+    <link rel="shortcut icon" href="assets/icons/ip-favicon.ico" /> -->
+
+    <!-- Animate CSS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <title>Omar Grant | Story</title>
+</head>
+
+<body>
+    <nav>
+        <h1><a href="index.html">Omar Grant</a></h1>
+    </nav>
+
+    <div class="supplementary">
+        <img src="assets/images/model-side.jpg" alt="A model with iPolish fingernails" />
+    </div>
+
+    <div class="text-box">
+        <p>
+            Our team weaves the impossible from sketch to shelf by making the complex comprehensible. The process starts
+            with evaluating a visual idea within the context of advanced, cutting-edge technologies that are clearly
+            understood by some of the brightest engineering and scientific minds on the planet.
+        </p>
+        <p>
+            From here, well, Omar meets Grant… through our skilled systems, the vision becomes reality, with a tight
+            focus on ensuring that simplicity, elegance and desirability are perfectly packaged into something amazing
+            that your customers will just need to own.
+        </p>
+        <p>
+            Enhance your customers’ joy by taking the next step with Omar Grant. Engaging our professional services can
+            unlock the unseen potential in your vision.
+        </p>
+        <a href="contact.html" class="site-link">Get in touch today</a>
+    </div>
+
+    <!-- Footer section -->
+    <footer class="homepage-footer">
+        <div class="footer-quicklinks">
+            <a class="footer-link">Our Story</a>
+            <a class="footer-link" href="story/purpose.html">Profits for Purpose</a>
+            <a class="footer-link" href="story/privacy.html">Privacy and
+                Security</a>
+            <a class="footer-link">Warranty
+                Information</a>
+            <a class="footer-link">Contact Us</a>
+        </div>
+        <br>
+        <p class="copy">iPolish, Inc.</p>
+        <p class="copy">&copy; 2025. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const nav = document.querySelector("nav");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+                nav.classList.add("shrink");
+            } else {
+                nav.classList.remove("shrink");
+            }
+        });
+    </script>
+</body>
+
+</html>

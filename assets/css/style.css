@@ -56,7 +56,6 @@ nav h1 {
 
 nav.shrink {
     height: 80px;
-    /* 40% smaller */
 }
 
 nav.shrink h1 {
@@ -167,10 +166,19 @@ sup {
 @media screen and (max-width: 1200px) {
     nav {
         padding: 0rem 0rem;
+        height: 80px;
+    }
+
+    nav.shrink {
+        height: 60px;
     }
 
     nav h1 {
-        font-size: 250%;
+        font-size: 3rem;
+    }
+
+    nav.shrink h1 {
+        font-size: 2rem;
     }
 
     nav ul {

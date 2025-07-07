@@ -35,23 +35,23 @@ nav {
     top: 0;
     left: 0;
     z-index: 1;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
     justify-content: center;
     height: 120px;
-    /* Add this */
     background-color: var(--bg-color);
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
     transition: height 0.3s ease;
-    /* Add this */
 }
 
 nav h1 {
+    grid-column: 2;
+    text-align: center;
+    margin: 0 auto;
     color: var(--primary-color);
     font-size: 5rem;
-    /* Instead of 400% — it's clearer and more scalable */
     transition: font-size 0.3s ease;
-    /* Add this */
 }
 
 nav.shrink {
@@ -72,18 +72,61 @@ nav a:hover {
     border-bottom: 2px solid var(--secondary-color);
 }
 
+/* Default - hide nav links */
 nav ul {
-    display: flex;
+    position: fixed;
+    background-color: var(--bg-color);
+    flex-direction: column;
+    top: 80px;
+    left: 50%;
+    /* center horizontally */
+    transform: translateX(120%);
+    /* Off-screen by default */
+    transition: transform 0.5s ease-in;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 8px;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    /* Glassmorphism and shadow */
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 nav ul li {
-    font-weight: var(--bold-font);
-    padding: 0rem;
+    padding: 1rem 0;
+    font-size: 1.2rem;
 }
 
+/* Show when .show is added (for all screen sizes) */
 nav ul.show {
     transform: translateX(0);
-    border-radius: 0% 0% 5% 5%;
+}
+
+.burger-menu {
+    grid-column: 3;
+    justify-self: end;
+    margin-right: 2rem;
+    font-size: 3rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+.burger-menu ion-icon {
+    transition: transform 0.3s ease;
+}
+
+.burger-menu.open ion-icon {
+    transform: rotate(90deg);
 }
 
 footer {
@@ -171,6 +214,37 @@ sup {
     display: flex;
 }
 
+@media screen and (min-width: 1201px) {
+    nav ul {
+        top: 120px;
+        right: 2rem;
+        left: auto;
+        width: auto;
+        max-width: 300px;
+        padding: 1rem 2rem;
+        position: absolute;
+        flex-direction: column;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        transform: translateX(120%);
+        transition: transform 0.5s ease-in;
+    }
+
+    nav ul li {
+        padding: 1rem 0;
+        font-size: 1.3rem;
+    }
+
+    nav ul.show {
+        transform: translateX(0);
+    }
+
+    .burger-menu {
+        font-size: 2.8rem;
+        padding-right: 2rem;
+    }
+}
+
 @media screen and (max-width: 1200px) {
     nav {
         padding: 0rem 0rem;
@@ -191,20 +265,25 @@ sup {
 
     nav ul {
         position: fixed;
-        background-color: var(--bg-color);
         flex-direction: column;
-        top: 86px;
+        top: 85px;
         left: 10%;
         width: 80%;
         text-align: center;
         transform: translateX(120%);
         transition: transform 0.5s ease-in;
-        border-radius: 0% 0% 5% 5%;
+        border-radius: 5% 5% 5% 5%;
     }
 
     nav ul li {
         margin: 8px;
         padding: .9rem;
+    }
+
+    .burger-menu {
+        margin-top: .5rem;
+        margin-right: 1rem;
+        font-size: 2rem;
     }
 
     .text-box {

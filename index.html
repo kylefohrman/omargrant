@@ -27,6 +27,15 @@
 <body>
     <nav>
         <h1><a href="index.html">Omar Grant</a></h1>
+        <ul class="navigation">
+            <li><a href="story.html" class="nav-link">Our Story</a></li>
+            <li><a href="purpose.html" class="nav-link">Profits for Purpose</a></li>
+            <li><a href="https://www.ipolish.fashion" class="nav-link">iPolish</a></li>
+            <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+        <button class="burger-menu" id="burger-menu">
+            <ion-icon class="bars" name="menu-outline"></ion-icon>
+        </button>
     </nav>
 
     <div class="banner banner-desktop">
@@ -106,7 +115,39 @@
                 nav.classList.remove("shrink");
             }
         });
+
+        const burger = document.querySelector("#burger-menu");
+        const burgerIcon = burger.querySelector("ion-icon");
+        const ul = document.querySelector("nav ul");
+
+        burger.addEventListener("click", () => {
+            ul.classList.toggle("show");
+
+            const isOpen = ul.classList.contains("show");
+            burger.classList.toggle("open");
+            burgerIcon.setAttribute("name", isOpen ? "close-outline" : "menu-outline");
+        });
+
+        const navLink = document.querySelectorAll(".nav-link");
+
+        navLink.forEach((link) =>
+            link.addEventListener("click", () => {
+                ul.classList.remove("show");
+                burger.classList.toggle("open");
+                burgerIcon.setAttribute("name", "menu-outline");
+            })
+        );
+
+        document.addEventListener("click", (e) => {
+            if (!nav.contains(e.target)) {
+                ul.classList.remove("show");
+                burger.classList.toggle("open");
+                burgerIcon.setAttribute("name", "menu-outline");
+            }
+        });
     </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

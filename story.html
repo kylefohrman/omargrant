@@ -21,12 +21,21 @@
 
     <!-- Animate CSS CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <title>Omar Grant | Story</title>
+    <title>Omar Grant | Our Story</title>
 </head>
 
 <body>
     <nav>
         <h1><a href="index.html">Omar Grant</a></h1>
+        <ul class="navigation">
+            <li><a href="story.html" class="nav-link">Our Story</a></li>
+            <li><a href="purpose.html" class="nav-link">Profits for Purpose</a></li>
+            <li><a href="https://www.ipolish.fashion" class="nav-link">iPolish</a></li>
+            <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+        <button class="burger-menu" id="burger-menu">
+            <ion-icon class="bars" name="menu-outline"></ion-icon>
+        </button>
     </nav>
 
     <div class="supplementary">
@@ -54,30 +63,21 @@
     <!-- Footer section -->
     <footer class="homepage-footer">
         <div class="footer-quicklinks">
-            <a class="footer-link">Our Story</a>
-            <a class="footer-link" href="story/purpose.html">Profits for Purpose</a>
+            <a class="footer-link" href="story.html">Our Story</a>
+            <a class="footer-link" href="purpose.html">Terms of Use</a>
+            <a class="footer-link" href="purpose.html">Profits for Purpose</a>
             <a class="footer-link" href="story/privacy.html">Privacy and
                 Security</a>
-            <a class="footer-link">Warranty
-                Information</a>
-            <a class="footer-link">Contact Us</a>
+            <a class="footer-link" href="contact.html">Contact Us</a>
         </div>
         <br>
         <p class="copy">iPolish, Inc.</p>
         <p class="copy">&copy; 2025. All rights reserved.</p>
     </footer>
 
-    <script>
-        const nav = document.querySelector("nav");
-
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 50) {
-                nav.classList.add("shrink");
-            } else {
-                nav.classList.remove("shrink");
-            }
-        });
-    </script>
+    <script src="assets/scripts/index-script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

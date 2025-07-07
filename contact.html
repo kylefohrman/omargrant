@@ -38,16 +38,26 @@
         </button>
     </nav>
 
-    <div class="supplementary">
-        <img src="assets/images/models-group.jpg" alt="A group of models with iPolish products" />
-    </div>
-    <div class="text-box">
-        <p>
-            iPolish<sup>®</sup> adaptive fashion products are capable of
-            changing to hundreds of rich colors and unique tones – a nearly endless selection for you to enjoy… in
-            style!</p>
-        <a href="https://www.ipolish.fashion" class="site-link">See iPolish<sup>®</sup> in action</a>
-    </div>
+    <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/mdkebrpr"
+        method="post">
+        <fieldset id="fs-frm-inputs">
+            <label for="full-name">Full Name</label>
+            <br>
+            <input type="text" name="name" id="full-name" placeholder="Troy Fohrman" required="">
+            <br>
+            <label for="email-address">Email Address</label>
+            <br>
+            <input type="email" name="_replyto" id="email-address" placeholder="info@ipolish.fashion" required="">
+            <br>
+            <label for="message">Message</label>
+            <br>
+            <textarea rows="5" name="message" id="message" placeholder="What's the fizz?" required=""
+                class="form-textarea"></textarea>
+            <br>
+            <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+        </fieldset>
+        <input type="submit" value="Submit">
+    </form>
 
     <!-- Footer section -->
     <footer class="homepage-footer">

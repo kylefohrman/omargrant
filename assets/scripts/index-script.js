@@ -47,7 +47,7 @@ navLink.forEach((link) =>
 document.addEventListener("click", (e) => {
     if (!nav.contains(e.target)) {
         ul.classList.remove("show");
-        burger.classList.toggle("open");
+        burger.classList.remove("open");
         burgerIcon.setAttribute("name", "menu-outline");
     }
 });
